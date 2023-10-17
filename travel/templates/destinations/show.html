@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mt-5 mb-5 justify-content-center">
+       <div class="col-md-10">
+          <div class="media border p-3 d-flex justify-content-start">
+             <img class="align-self-center me-3" style="max-width:120px"
+                src="{{ destination.image }}"
+                alt="Planet Earth">
+             <div class="align-self-center media-body">
+                <h5 class="mt-0">{{ destination.name }}</h5>
+                <p class="d-none d-sm-block">{{ destination.description }}</p>
+                <a href="#" class="btn btn-primary">Book Now</a>
+             </div>
+          </div>
+       </div>
+    </div>
+    
+    <div class="row">  
+        <div class="col-md-12">  
+          <h2>Comments</h2>  
+        </div>  
+      </div>  
+   
+      <div class="row border-bottom">  
+        {% for comment in destination.comments %}
+        <div class="col-md-12">  
+          <b>{{comment.user}} <span class="ml-2 text-muted">January 2024</span></b>
+          <p>{{comment.text}}</p>  
+        </div> 
+        {% endfor %} 
+      </div>  
+    </div> 
+
+{% endblock %}
